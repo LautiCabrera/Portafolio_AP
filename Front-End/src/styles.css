@@ -37,6 +37,12 @@ html{
     align-items: center;
 }
 
+.navbar>.container-fluid{
+    flex-wrap:initial;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 h1, h2, h3, h4, h5, h6, p, a{
     font-family: var(--font) !important;
