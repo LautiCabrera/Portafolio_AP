@@ -10,7 +10,6 @@ import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
 import { EncabezadoComponent } from './componentes/encabezado/encabezado.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClient} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { HttpClient} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClient
   ],
   providers: [],
   bootstrap: [AppComponent]
