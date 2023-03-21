@@ -10,6 +10,8 @@ import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
 import { EncabezadoComponent } from './componentes/encabezado/encabezado.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './componentes/home/home.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     HabilidadesComponent,
     SobreMiComponent,
     EncabezadoComponent,
-    PiePaginaComponent
+    PiePaginaComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
