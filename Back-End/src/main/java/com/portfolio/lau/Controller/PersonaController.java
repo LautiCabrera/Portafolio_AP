@@ -4,6 +4,7 @@ import com.portfolio.lau.Entity.Persona;
 import com.portfolio.lau.Interface.PersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,18 +25,21 @@ public class PersonaController {
         return personaService.getPersona();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/personas/crear")
     public String crearPersona(@RequestBody Persona persona){
         personaService.guardarPersona(persona);
         return "La persona se creo correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/personas/borrar/{id}")
     public String borrarPersona(@PathVariable Long id){
         personaService.borrarPersona(id);
         return "La persona se elimino con exito";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/personas/editar/{id}")
     public Persona editarPersona(@PathVariable Long id, @RequestParam ("Nombre") String nombreNuevo, @RequestParam ("Apellido") String apellidoNuevo, @RequestParam ("Imagen") String imagenNueva){
         Persona persona = personaService.buscarPersona(id);
