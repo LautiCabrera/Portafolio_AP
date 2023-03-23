@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
   onLogin(): void{
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password); 
     this.authService.login(this.loginUsuario).subscribe(data => {
+        console.log("hola");
         this.isLogged = true;
         this.isLogginFail = false;
         this.tokenService.setToken(data.token);
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
         this.roles = data.authorities;
         this.router.navigate([''])
       }, err => {
+        console.log("F");
         this.isLogged = false;
         this.isLogginFail = true;
         this.errMsj = err.error.mensaje;

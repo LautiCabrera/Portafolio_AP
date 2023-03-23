@@ -10,14 +10,15 @@
                             <p class="text-muted mb-4">Ingrese las credenciales de acceso</p>
                             <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
                                 <div class="form-group mb-3">
-                                    <input id="nommbreUsuario" name="nombreUsuario" type="email" placeholder="Usuario" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    <input id="nombreUsuario" type="email" name="nombreUsuario" class="form-control rounded-pill border-0 shadow-sm px-4" 
+                                    [(ngModel)]="nombreUsuario" required />
+                                    <label class="form-label" for="nombreUsuario">Usuario</label>
                                 </div>
+
                                 <div class="form-group mb-3">
-                                    <input id="inputPassword" type="password" placeholder="Contraseña" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" [(ngModel)]="nombreUsuario" request>
-                                </div>
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <input id="customCheck1" type="checkbox" checked class="custom-control-input">
-                                    <label for="customCheck1" class="custom-control-label">Recordar contraseña</label>
+                                    <input id="password" type="password" name="password" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" 
+                                    [(ngModel)]="password" required />
+                                    <label class="form-label" for="password">Contraseña</label>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Ingresar</button>
                                 <div class="text-center d-flex justify-content-between mt-4"><p>¿No tienes cuenta? <a href="" class="font-italic text-muted"> 
