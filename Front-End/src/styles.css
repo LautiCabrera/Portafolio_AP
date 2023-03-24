@@ -44,18 +44,18 @@ html{
     justify-content: space-between;
 }
 
-h1, h2, h3, h4, h5, h6, p, a{
+h1, h2, h3, h4, h5, h6, p{
     font-family: var(--font) !important;
 }
+
 h1, h2, h3{
     font-weight: 700 !important;
 }
+
 h4, h5, h6, p, a{
     font-weight: 400 !important;
 }
-a{
-    color: var(--secondary);
-}
+
 .btn {
     color: var(--white) !important;
     background-color: var(--primary) !important;
@@ -104,7 +104,6 @@ a{
     background-position: centers;
     background-color: black;
 }
-
 
 .display-1{
     color: var(--secondary);
