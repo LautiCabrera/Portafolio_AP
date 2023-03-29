@@ -11,39 +11,35 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class ExperienciaComponent implements OnInit {
 
-  experiencias: Experiencia[] = [];
-  roles: string[] = [];
-  isAdmin = false;
+  experiencia: Experiencia[] = [];
 
-  constructor(private router: Router, private service: ExperienciaService, private tokenService : TokenService) { }
+  constructor(private Experiencia: ExperienciaService, private tokenService: TokenService) { }
+
+  isLogged = false;
+
   ngOnInit(): void {
-    this.service.getExperiencia()
-      .subscribe(data => {
-        this.experiencias = data;
-      })
-      this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol => {
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-    });
+    this.cargarExperiencia();
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
 
-  Nuevo() {
-    this.router.navigate(["addExp"]);
+  cargarExperiencia(): void {
+    this.Experiencia.lista().subscribe(data => { this.experiencia = data; })
   }
 
- Editar(experiencia: Experiencia): void {
-    localStorage.setItem("id", experiencia.id.toString());
-    this.router.navigate(["editExp"]);
-  }
-
-  Delete(experiencia: Experiencia) {
-    this.service.deleteExperiencia(experiencia)
-      .subscribe(data => {
-        this.experiencias = this.experiencias.filter(p => p !== experiencia);
-        alert("Experiencia eliminado...");
-      })
+  delete(id?: number){
+    if(id != undefined){
+      this.Experiencia.delete(id).subscribe(
+        data => {
+          this.cargarExperiencia();
+        }, err => {
+          alert("No se pudo borrar la experiencia");
+        }
+      )
+    }
   }
 
 }

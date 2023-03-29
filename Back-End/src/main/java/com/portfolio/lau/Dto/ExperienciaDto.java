@@ -9,20 +9,17 @@ public class ExperienciaDto {
     
     @NotBlank
     private String nombre;
-    
     @NotBlank
-    private String puesto;
+    private String descripcion;
     
-    @NotBlank
-    private String fecha;
+    //Constructores
 
     public ExperienciaDto() {
     }
 
-    public ExperienciaDto(String nombre, String puesto, String fecha) {
+    public ExperienciaDto(String nombre, String descripcion) {
         this.nombre = nombre;
-        this.puesto = puesto;
-        this.fecha = fecha;
+        this.descripcion = descripcion;
     }
     
 }

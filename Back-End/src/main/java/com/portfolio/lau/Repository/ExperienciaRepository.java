@@ -6,5 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface iExperienciaRepository extends JpaRepository<Experiencia, Integer> {
+public interface ExperienciaRepository extends JpaRepository<Experiencia, Integer> {
+    public Optional<Experiencia> findByNombre(String nombre);
+    public boolean existsByNombre(String nombre);
 }

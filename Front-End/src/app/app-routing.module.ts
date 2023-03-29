@@ -7,7 +7,7 @@ import { NewExperienciaComponent } from './componentes/experiencia/new-experienc
 const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'login', component: LoginComponent},
-  {path:'addExp',component: NewExperienciaComponent, data: {expectedRol:['admin']}}
+  {path:'addExp', component: NewExperienciaComponent, data: {expectedRol:['admin']}}
 ];
 
 @NgModule({
