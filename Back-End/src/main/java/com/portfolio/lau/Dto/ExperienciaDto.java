@@ -11,8 +11,6 @@ public class ExperienciaDto {
     private String nombre;
     @NotBlank
     private String descripcion;
-    
-    //Constructores
 
     public ExperienciaDto() {
     }

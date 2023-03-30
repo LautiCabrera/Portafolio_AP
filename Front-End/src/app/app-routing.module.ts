@@ -3,11 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { NewExperienciaComponent } from './componentes/experiencia/new-experiencia/new-experiencia.component';
+import { EditExperienciaComponent } from './componentes/experiencia/edit-experiencia/edit-experiencia.component';
+import { NewEducacionComponent } from './componentes/educacion/new-educacion/new-educacion.component';
+import { EditEducacionComponent } from './componentes/educacion/edit-educacion/edit-educacion.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'login', component: LoginComponent},
-  {path:'addExp', component: NewExperienciaComponent, data: {expectedRol:['admin']}}
+  {path:'addExp', component: NewExperienciaComponent, data: {expectedRol:['admin']}},
+  {path:'editExp/:id', component: EditExperienciaComponent, data: {expectedRol:['admin']}},
+  {path:'addEdu/:id', component: NewEducacionComponent, data: {expectedRol:['admin']}},
+  {path:'editEdu/:id', component: EditEducacionComponent, data: {expectedRol:['admin']}}
 ];
 
 @NgModule({

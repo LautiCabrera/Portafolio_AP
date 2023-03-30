@@ -12,22 +12,20 @@ import lombok.Setter;
 @Getter @Setter
 @Entity
 public class Educacion {
-   
+
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     
     @NotNull
     @Size(min = 1, max = 1599, message = "No es posible cargar los datos")
-    private String establecimiento;
+    private String nombre;
     
     @NotNull
     @Size(min = 1, max = 1599, message = "No es posible cargar los datos")
-    private String logro;
+    private String descripcion;  
     
-    @NotNull
-    @Size(min = 1, max = 1599, message = "No es posible cargar los datos")
-    private String fecha;    
-    
+    public Educacion(String nombre1, String descripcion1) {
+    }
     
 }

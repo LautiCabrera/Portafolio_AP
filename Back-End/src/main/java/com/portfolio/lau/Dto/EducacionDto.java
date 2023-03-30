@@ -8,21 +8,17 @@ import lombok.Setter;
 public class EducacionDto {
     
     @NotBlank
-    private String establecimiento;
+    private String nombre;
     
     @NotBlank
-    private String logro;
-    
-    @NotBlank
-    private String fecha;
+    private String descripcion;
     
     public EducacionDto() {
     }
 
-    public EducacionDto(String establecimiento, String logro, String fecha) {
-        this.establecimiento = establecimiento;
-        this.logro = logro;
-        this.fecha = fecha;
+    public EducacionDto(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
     }
     
 }

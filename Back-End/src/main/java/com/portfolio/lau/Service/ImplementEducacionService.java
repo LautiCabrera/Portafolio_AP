@@ -1,37 +1,43 @@
 package com.portfolio.lau.Service;
 
 import com.portfolio.lau.Entity.Educacion;
-import com.portfolio.lau.Repository.iEducacionRepository;
-import com.portfolio.lau.Interface.iEducacionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.portfolio.lau.Repository.EducacionRepository;
+import java.util.Optional;
 
 @Service
-public class ImplementEducacionService implements iEducacionService {
+public class ImplementEducacionService {
     
-    @Autowired iEducacionRepository ieducacionRepository;
+    @Autowired EducacionRepository educacionRepository;
     
-    @Override
-    public List<Educacion> getEducacion() {
-        List<Educacion> educacion = ieducacionRepository.findAll();
-        return educacion;
+    public List<Educacion> list(){
+        return educacionRepository.findAll();
     }
-
-    @Override
-    public void saveEducacion(Educacion educacion) {
-       ieducacionRepository.save(educacion);
+    
+    public Optional<Educacion> getOne(int id){
+        return educacionRepository.findById(id);
     }
-
-    @Override
-    public void deleteEducacion(int id) {
-     ieducacionRepository.deleteById(id);
+    
+    public Optional<Educacion> getByNmbre(String nombre){
+        return educacionRepository.findByNombre(nombre);
     }
-
-    @Override
-    public Educacion findEducacion(int id) {
-       Educacion educacion= ieducacionRepository.findById(id).orElse(null);
-       return educacion;
+    
+    public void save(Educacion educacion){
+        educacionRepository.save(educacion);
+    }
+    
+    public void delete(int id){
+        educacionRepository.deleteById(id);
+    }
+    
+    public boolean existsById(int id){
+        return educacionRepository.existsById(id);
+    }
+    
+    public boolean existsByNombre(String nombre){
+        return educacionRepository.existsByNombre(nombre);
     }
     
 }
