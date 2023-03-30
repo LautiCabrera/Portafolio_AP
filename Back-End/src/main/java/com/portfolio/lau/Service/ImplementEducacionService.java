@@ -20,7 +20,7 @@ public class ImplementEducacionService {
         return educacionRepository.findById(id);
     }
     
-    public Optional<Educacion> getByNmbre(String nombre){
+    public Optional<Educacion> getByNombre(String nombre){
         return educacionRepository.findByNombre(nombre);
     }
     

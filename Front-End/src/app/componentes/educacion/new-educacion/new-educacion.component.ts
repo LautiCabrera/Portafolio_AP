@@ -13,14 +13,14 @@ export class NewEducacionComponent {
   nombre: string;
   descripcion: string;
 
-  constructor(private educacionS: EducacionService, private router: Router) { }
+  constructor(private educacion: EducacionService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onCreate(): void{
     const educacion = new Educacion(this.nombre, this.descripcion);
-    this.educacionS.save(educacion).subscribe(
+    this.educacion.save(educacion).subscribe(
       data =>{
         alert("Educación añadida con éxito");
         this.router.navigate(['']);
@@ -30,5 +30,9 @@ export class NewEducacionComponent {
       }
     )
   }
+
+  Cancel(){
+    this.router.navigate([''])
+  }  
 
 }

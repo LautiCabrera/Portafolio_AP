@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'addExp', component: NewExperienciaComponent, data: {expectedRol:['admin']}},
   {path:'editExp/:id', component: EditExperienciaComponent, data: {expectedRol:['admin']}},
-  {path:'addEdu/:id', component: NewEducacionComponent, data: {expectedRol:['admin']}},
+  {path:'addEdu', component: NewEducacionComponent, data: {expectedRol:['admin']}},
   {path:'editEdu/:id', component: EditEducacionComponent, data: {expectedRol:['admin']}}
 ];
 
