@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
 import { ExperienciaService } from 'src/app/service/experiencia.service';
 import { TokenService } from 'src/app/service/token.service';
@@ -9,6 +8,7 @@ import { TokenService } from 'src/app/service/token.service';
   templateUrl: './experiencia.component.html',
   styleUrls: ['./experiencia.component.css']
 })
+
 export class ExperienciaComponent implements OnInit {
 
   experiencia: Experiencia[] = [];
