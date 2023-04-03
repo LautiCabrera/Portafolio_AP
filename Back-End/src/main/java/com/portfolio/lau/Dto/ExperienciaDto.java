@@ -9,6 +9,7 @@ public class ExperienciaDto {
     
     @NotBlank
     private String nombre;
+    
     @NotBlank
     private String descripcion;
 

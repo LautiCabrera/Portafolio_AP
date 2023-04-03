@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/service/educacion.service';
+import { ModalesService } from 'src/app/service/modales.service';
 
 @Component({
   selector: 'app-new-educacion',
@@ -10,10 +11,11 @@ import { EducacionService } from 'src/app/service/educacion.service';
 })
 export class NewEducacionComponent {
 
+
   nombre: string;
   descripcion: string;
 
-  constructor(private educacion: EducacionService, private router: Router) { }
+  constructor(private educacion: EducacionService, private router: Router, private modalSS: ModalesService) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +27,7 @@ export class NewEducacionComponent {
         alert("Educación añadida con éxito");
         this.router.navigate(['']);
       }, err =>{
-        alert("Falló al añadir educación");
+        alert("Fallo al añadir educación");
         this.router.navigate(['']);
       }
     )
@@ -34,5 +36,9 @@ export class NewEducacionComponent {
   Cancel(){
     this.router.navigate([''])
   }  
+
+  CloseModal(){
+    this.modalSS.$modal.emit(false);
+  }
 
 }

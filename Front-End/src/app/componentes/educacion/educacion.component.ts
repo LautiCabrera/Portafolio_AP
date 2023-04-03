@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/service/educacion.service';
+import { ModalesService } from 'src/app/service/modales.service';
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
@@ -11,9 +12,10 @@ import { TokenService } from 'src/app/service/token.service';
 
 export class EducacionComponent implements OnInit {
   
+  modalswitch: boolean;
   educacion: Educacion[] = [];
 
-  constructor(private Educacion: EducacionService, private tokenService: TokenService) { }
+  constructor(private Educacion: EducacionService, private tokenService: TokenService, private modalSS: ModalesService) { }
 
   isLogged = false;
 
@@ -24,6 +26,8 @@ export class EducacionComponent implements OnInit {
     } else {
       this.isLogged = false;
     }
+    
+    this.modalSS.$modal.subscribe((valor)=>{this.modalswitch = valor});
   }
 
   cargarEducacion(): void{
@@ -40,6 +44,10 @@ export class EducacionComponent implements OnInit {
         }
       )
     }
+  }
+
+  openModal(){
+    this.modalswitch = true;
   }
 
 }
