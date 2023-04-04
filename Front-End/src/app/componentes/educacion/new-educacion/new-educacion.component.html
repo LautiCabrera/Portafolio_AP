@@ -1,20 +1,16 @@
 <div class="container">
     <div class="row">
-        <div>
-            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre del estudio:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required>
-                </div><br>
-                <div class="form-group">
-                    <label for="descripcion">Descripción:</label>
-                    <input type="text" style="height: 100;" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="descripcion" required>
-                </div><br>
-                <button class="btn btn-primary" style="margin-right: 10px;">
-                    Agregar educación
-                </button>
-                <button class="btn btn-secondary" (click)="CloseModal()">Cancelar</button>
-            </form>
-        </div>
+        <form (ngSubmit)="Guardar()" novalidate #f="ngForm">
+            <div class="form-group">
+                <label for="nombre">Nombre del estudio:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required>
+            </div><br>
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <input type="text" style="height: 100;" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="descripcion" required>
+            </div><br>
+            <button class="btn btn-primary" style="margin-right: 10px;">Agregar educación</button>
+            <button class="btn btn-danger" type="button" (click)="Cancel()">Cancelar</button>
+        </form>
     </div>
-  </div>
+</div>

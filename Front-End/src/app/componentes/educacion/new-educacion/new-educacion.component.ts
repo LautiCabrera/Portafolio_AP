@@ -11,7 +11,6 @@ import { ModalesService } from 'src/app/service/modales.service';
 })
 export class NewEducacionComponent {
 
-
   nombre: string;
   descripcion: string;
 
@@ -19,26 +18,28 @@ export class NewEducacionComponent {
 
   ngOnInit(): void {
   }
-
-  onCreate(): void{
+ 
+  Guardar(): void{
     const educacion = new Educacion(this.nombre, this.descripcion);
     this.educacion.save(educacion).subscribe(
       data =>{
         alert("Educación añadida con éxito");
+        this.modalSS.$modal.emit(false);
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+        window.location.reload();
+        window.scrollTo(scrollX, scrollY);
         this.router.navigate(['']);
       }, err =>{
         alert("Fallo al añadir educación");
-        this.router.navigate(['']);
+        this.modalSS.$modal.emit(false);
       }
     )
   }
 
   Cancel(){
-    this.router.navigate([''])
-  }  
-
-  CloseModal(){
     this.modalSS.$modal.emit(false);
-  }
+    this.router.navigate(['']);
+  }  
 
 }

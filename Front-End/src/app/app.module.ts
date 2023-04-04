@@ -44,7 +44,7 @@ import { EditEducacionComponent } from './componentes/educacion/edit-educacion/e
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule   
+    ReactiveFormsModule
   ],
   providers: [
     interceptorProvider

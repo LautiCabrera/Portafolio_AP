@@ -12,7 +12,8 @@ import { TokenService } from 'src/app/service/token.service';
 
 export class EducacionComponent implements OnInit {
   
-  modalswitch: boolean;
+  modalEduNew: boolean;
+  modalEduEdit: boolean;
   educacion: Educacion[] = [];
 
   constructor(private Educacion: EducacionService, private tokenService: TokenService, private modalSS: ModalesService) { }
@@ -20,14 +21,15 @@ export class EducacionComponent implements OnInit {
   isLogged = false;
 
   ngOnInit(): void {
+
     this.cargarEducacion();
     if (this.tokenService.getToken()){
       this.isLogged = true;
+      this.modalSS.$modal.subscribe((valor)=>{this.modalEduNew = valor});
+      this.modalSS.$modal.subscribe((valor)=>{this.modalEduEdit = valor});
     } else {
       this.isLogged = false;
     }
-    
-    this.modalSS.$modal.subscribe((valor)=>{this.modalswitch = valor});
   }
 
   cargarEducacion(): void{
@@ -46,8 +48,12 @@ export class EducacionComponent implements OnInit {
     }
   }
 
-  openModal(){
-    this.modalswitch = true;
+  openNewEdu(){
+    this.modalEduNew = true;
+  }
+
+  openEditEdu(){
+    this.modalEduEdit = true;
   }
 
 }
