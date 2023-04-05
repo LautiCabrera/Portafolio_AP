@@ -11,18 +11,14 @@ public class HabilidadesDto {
     private String nombre;
      
     @NotBlank
-    private int progeso;
-    
-    @NotBlank
-    private String imagen;
+    private int progreso;
 
     public HabilidadesDto() {
     }
 
-    public HabilidadesDto(String nombre, int progeso, String imagen) {
+    public HabilidadesDto(String nombre, int progreso) {
         this.nombre = nombre;
-        this.progeso = progeso;
-        this.imagen = imagen;
+        this.progreso = progreso;
     }
     
 }

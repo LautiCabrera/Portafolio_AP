@@ -37,7 +37,6 @@ public class EducacionController {
         if(!implementEducacionService.existsById(id)){
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.BAD_REQUEST);
         }
-        
         Educacion educacion = implementEducacionService.getOne(id).get();
         return new ResponseEntity(educacion, HttpStatus.OK);
     }
@@ -57,7 +56,6 @@ public class EducacionController {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         if(implementEducacionService.existsByNombre(educacionDto.getNombre()))
             return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
-        
         Educacion educacion = new Educacion(educacionDto.getNombre(), educacionDto.getDescripcion());
         implementEducacionService.save(educacion);
         return new ResponseEntity(new Mensaje("Educacion creada"), HttpStatus.OK);
@@ -66,13 +64,10 @@ public class EducacionController {
     
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody EducacionDto educaciondto){
-        //Validamos si existe el ID
         if(!implementEducacionService.existsById(id))
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
-        //Compara nombre de educacion
         if(implementEducacionService.existsByNombre(educaciondto.getNombre()) && implementEducacionService.getByNombre(educaciondto.getNombre()).get().getId() != id)
             return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
-        //No puede estar vacio
         if(StringUtils.isBlank(educaciondto.getNombre()))
             return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
         

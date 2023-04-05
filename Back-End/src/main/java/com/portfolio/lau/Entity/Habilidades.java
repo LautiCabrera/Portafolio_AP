@@ -23,9 +23,12 @@ public class Habilidades {
     @NotNull
     @Size(min = 1, max = 100, message = "No se cumple la condición")
     private int progreso;
+
+    public Habilidades(String nombre, int progreso) {
+        this.nombre = nombre;
+        this.progreso = progreso;
+    }
     
-    @NotNull
-    @Size(min = 1, max = 600, message = "No se cumple la condición")
-    private String imagen;
+    
     
 }

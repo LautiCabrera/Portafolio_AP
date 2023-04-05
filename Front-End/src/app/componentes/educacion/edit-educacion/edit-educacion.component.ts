@@ -17,6 +17,15 @@ export class EditEducacionComponent implements OnInit {
   constructor(private Educacion: EducacionService, private activatedRouter: ActivatedRoute, private router: Router, private modalSS: ModalesService) { }
 
   ngOnInit(): void {
+    const id = this.activatedRouter.snapshot.params['id'];
+    this.Educacion.detail(id).subscribe(
+      data =>{
+        this.educacion = data;
+      }, err =>{
+        alert("Error al modificar educación");
+        this.router.navigate(['']);
+      }
+    )
   }
 
   Actualizar(): void{
