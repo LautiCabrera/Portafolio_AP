@@ -33,7 +33,7 @@ public class HabilidadesController {
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    @GetMapping("/detail/{id}")
+    @GetMapping("/detalle/{id}")
     public ResponseEntity<Habilidades> getById(@PathVariable("id") int id) {
         if (!serviceHabilidades.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -42,7 +42,7 @@ public class HabilidadesController {
         return new ResponseEntity(hYs, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!serviceHabilidades.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -51,22 +51,18 @@ public class HabilidadesController {
         return new ResponseEntity(new Mensaje("Skill eliminado"), HttpStatus.OK);
     }
 
-    @PostMapping("/create")
+    @PostMapping("/crear")
     public ResponseEntity<?> create(@RequestBody HabilidadesDto habilidadesDto) {
-        if (StringUtils.isBlank(habilidadesDto.getNombre())) {
+        if(StringUtils.isBlank(habilidadesDto.getNombre())) 
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        }
-        if (serviceHabilidades.existsByNombre(habilidadesDto.getNombre())) {
+        if(serviceHabilidades.existsByNombre(habilidadesDto.getNombre())) 
             return new ResponseEntity(new Mensaje("Esa skill ya existe"), HttpStatus.BAD_REQUEST);
-        }
-
         Habilidades habilidades = new Habilidades(habilidadesDto.getNombre(), habilidadesDto.getProgreso());
         serviceHabilidades.save(habilidades);
-
         return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody HabilidadesDto dtohys) {
         if (!serviceHabilidades.existsById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);

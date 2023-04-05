@@ -15,7 +15,7 @@ export class HabilidadesService {
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Habilidades[]>{
-    return this.httpClient.get<Habilidades[]>(this.URL + '/lista');
+    return this.httpClient.get<Habilidades[]>(this.URL + '/lista'); 
   }
 
   public detail(id: number): Observable<Habilidades>{
@@ -31,7 +31,7 @@ export class HabilidadesService {
   }
 
   public delete(id: number): Observable<any>{
-    return this.httpClient.delete(this.URL + `/borrar/${id}`);
+    return this.httpClient.delete<any>(this.URL + `/borrar/${id}`);
   }
   
 }
