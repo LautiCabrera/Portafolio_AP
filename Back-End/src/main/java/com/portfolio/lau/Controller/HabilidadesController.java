@@ -64,17 +64,12 @@ public class HabilidadesController {
 
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody HabilidadesDto dtohys) {
-        if (!serviceHabilidades.existsById(id)) {
+        if (!serviceHabilidades.existsById(id)) 
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
-        }
-        if (serviceHabilidades.existsByNombre(dtohys.getNombre()) && serviceHabilidades.getByNombre(dtohys.getNombre()).get()
-                .getId() != id) {
+        if (serviceHabilidades.existsByNombre(dtohys.getNombre()) && serviceHabilidades.getByNombre(dtohys.getNombre()).get().getId() != id) 
             return new ResponseEntity(new Mensaje("Esa skill ya existe"), HttpStatus.BAD_REQUEST);
-        }
-        if (StringUtils.isBlank(dtohys.getNombre())) {
+        if (StringUtils.isBlank(dtohys.getNombre())) 
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        }
-
         Habilidades habilidades = serviceHabilidades.getOne(id).get();
         habilidades.setNombre(dtohys.getNombre());
         habilidades.setProgreso(dtohys.getProgreso());

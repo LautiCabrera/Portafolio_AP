@@ -13,12 +13,12 @@ import { TokenService } from 'src/app/service/token.service';
 export class EncabezadoComponent implements OnInit {
   
   isLogged = false;
-  persona: Persona = new Persona("","","");
+  persona: Persona = new Persona("","","","");
 
   constructor(public personaService: PersonaService, private router: Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    this.personaService.getPersona().subscribe(data => {this.persona = data})
+    this.cargarPersona;
     if(this.tokenService.getToken()){
       this.isLogged=true;
     }else{
@@ -33,5 +33,9 @@ export class EncabezadoComponent implements OnInit {
 
   login(){
     this.router.navigate(['/login'])
+  }
+
+  cargarPersona(){
+    this.personaService.detail(1).subscribe(data => {this.persona = data});
   }
 }

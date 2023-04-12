@@ -1,18 +1,16 @@
-<!--About-->
 <section id="sobre_mi" class="container-fluid mt-3">
     <div class="container py-4 contenedor">
         <h2 class="display-6 mb-3 h2-lines">Sobre mí</h2>
         <div class="row align-items-center py-3">
             <div class="col-sm-4">
-                <img src="../assets/YoRedondo.png" alt="profile" class="img-fluid">
-                <span class="edit-icon" data-bs-toggle="modal" data-bs-target="#editFotoModal"><i class="bi bi-pencil-square"></i></span>
+                <img src={{persona.imagen}} alt="profile" class="img-fluid">
+                <span *ngIf="isLogged" class="edit-icon" data-bs-toggle="modal" data-bs-target="#editFotoModal">
+                    <i routerLink="/editPer" *ngIf="isLogged" class="bi bi-pencil-square"></i>
+                </span>
             </div>
             <div class="col-sm-8 mt-3">
-                <p style="text-align:justify;" class="fs-4">
-                    Soy Lautaro Nahuel Cabrera Fernandez, entusiasta estudiante de IT con muchas ganas de aprender y crecer tanto personal como profesionalmente. 
-                    Me considero una persona muy versátil, interactiva, autodidacta, introvertida y capaz. 
-                    Es por ello que estoy en búsqueda de mi primer experiencia laboral en el mundo IT de manera profesional.</p>
+                <p style="text-align:justify;" class="fs-4">{{persona.descripcion}}</p>
             </div>
         </div>
     </div>
-  </section>
+</section>

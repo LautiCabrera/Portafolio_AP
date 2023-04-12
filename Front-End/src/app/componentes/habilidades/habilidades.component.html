@@ -18,7 +18,7 @@
                                 <i routerLink="/editHab/{{habilidad.id}}" class="bi bi-pencil-square"></i>
                             </span>
                             <span class="edit-icon" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                <i *ngIf="isLogged" (click)="delete(habilidad.id)" class="bi bi-trash3"></i>
+                                <i (click)="delete(habilidad.id)" class="bi bi-trash3"></i>
                             </span>
                         </div>
                     </div>
@@ -38,12 +38,12 @@
                 <div class="skill-item" *ngFor="let habilidad of habilidad">
                     <div class="item-title d-flex justify-content-between align-items-center">
                         <span class="fs-5">{{habilidad.nombre}}</span>
-                        <div class="item-buttons">
+                        <div class="item-buttons" *ngIf="isLogged">
                             <span class="edit-icon" data-bs-toggle="modal" data-bs-target="#skillEdit">
                                 <i routerLink="/editHab/{{habilidad.id}}" class="bi bi-pencil-square"></i>
                             </span>
                             <span class="edit-icon" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                <i *ngIf="isLogged" (click)="delete(habilidad.id)" class="bi bi-trash3"></i>
+                                <i (click)="delete(habilidad.id)" class="bi bi-trash3"></i>
                             </span>
                         </div>
                     </div>
@@ -64,12 +64,12 @@
                 <div class="skill-item" *ngFor="let habilidad of habilidad">
                     <div class="item-title d-flex justify-content-between align-items-center">
                         <span class="fs-5">{{habilidad.nombre}}</span>
-                        <div class="item-buttons">
+                        <div class="item-buttons" *ngIf="isLogged">
                             <span class="edit-icon" data-bs-toggle="modal" data-bs-target="#skillEdit">
                                 <i routerLink="/editHab/{{habilidad.id}}" class="bi bi-pencil-square"></i>
                             </span>
                             <span class="edit-icon" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                <i *ngIf="isLogged" (click)="delete(habilidad.id)" class="bi bi-trash3"></i>
+                                <i (click)="delete(habilidad.id)" class="bi bi-trash3"></i>
                             </span>
                         </div>
                     </div>

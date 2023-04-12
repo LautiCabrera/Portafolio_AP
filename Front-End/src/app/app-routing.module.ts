@@ -8,6 +8,7 @@ import { NewEducacionComponent } from './componentes/educacion/new-educacion/new
 import { EditEducacionComponent } from './componentes/educacion/edit-educacion/edit-educacion.component';
 import { NewHabilidadComponent } from './componentes/habilidades/new-habilidad/new-habilidad.component';
 import { EditHabilidadComponent } from './componentes/habilidades/edit-habilidad/edit-habilidad.component';
+import { EditSobreMiComponent } from './componentes/sobre-mi/edit-sobre-mi/edit-sobre-mi.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'addEdu', component: NewEducacionComponent, data: {expectedRol:['admin']}},
   {path:'editEdu/:id', component: EditEducacionComponent, data: {expectedRol:['admin']}},
   {path:'addHab', component: NewHabilidadComponent, data: {expectedRol:['admin']}},
-  {path:'editHab/:id', component: EditHabilidadComponent, data: {expectedRol:['admin']}}
+  {path:'editHab/:id', component: EditHabilidadComponent, data: {expectedRol:['admin']}},
+  {path:'editPer/:id', component: EditSobreMiComponent, data: {expectedRol:['admin']}}
 ];
 
 @NgModule({

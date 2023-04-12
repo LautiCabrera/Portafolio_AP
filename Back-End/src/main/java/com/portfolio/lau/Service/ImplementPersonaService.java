@@ -1,37 +1,55 @@
-
 package com.portfolio.lau.Service;
 
 import com.portfolio.lau.Entity.Persona;
-import com.portfolio.lau.Interface.PersonaService;
 import com.portfolio.lau.Repository.PersonaRepository;
 import java.util.List;
+import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ImplementPersonaService implements PersonaService {
+@Transactional
+public class ImplementPersonaService{
 
-    @Autowired PersonaRepository personaRepository;
+    @Autowired
+    PersonaRepository ipersonaRepository;
     
-    @Override
-    public List<Persona> getPersona() {
-        List<Persona> persona = personaRepository.findAll();
+    public List<Persona> list(){
+        return ipersonaRepository.findAll();
+     }
+     
+    public Optional<Persona> getOne(int id){
+        return ipersonaRepository.findById(id);
+    }
+     
+    public Optional<Persona> getByNombre(String nombre){
+        return ipersonaRepository.findByNombre(nombre);
+    }
+     
+    public void save(Persona persona){
+        ipersonaRepository.save(persona);
+    }
+     
+    public void delete(int id){
+        ipersonaRepository.deleteById(id);
+    }
+     
+    public boolean existsById(int id){
+        return ipersonaRepository.existsById(id);
+    }
+     
+    public boolean existsByNombre(String nombre){
+        return ipersonaRepository.existsByNombre(nombre);
+    }
+     
+    public Persona findPersona(int id) {
+        Persona persona= ipersonaRepository.findById(id).orElse(null);
         return persona;
     }
-
-    @Override
-    public void guardarPersona(Persona persona) {
-        personaRepository.save(persona);
-    }
-
-    @Override
-    public void borrarPersona(Long id) {
-        personaRepository.deleteById(id);
-    }
-
-    @Override
-    public Persona buscarPersona(Long id) {
-        Persona persona = personaRepository.findById(id).orElse(null);
+    
+    public List<Persona> getPersona() {
+        List<Persona> persona = ipersonaRepository.findAll();
         return persona;
     }
     

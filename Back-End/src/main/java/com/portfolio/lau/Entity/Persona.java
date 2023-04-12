@@ -6,13 +6,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 @Entity
 public class Persona {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
     
     @NotNull
     @Size(min = 3, max  = 30, message = "No llenó correctamente los campos")
@@ -22,39 +25,21 @@ public class Persona {
     @Size(min = 3, max  = 30, message = "No llenó correctamente los campos")
     private String apellido;
     
-    @Size(min = 3, max  = 30, message = "No llenó correctamente los campos")
+    @Size(min = 3, max  = 100, message = "No llenó correctamente los campos")
     private String imagen;
+    
+    @NotNull
+    private String descripcion;
 
-    public long getId() {
-        return id;
+    public Persona() {
+        
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
+    public Persona(String nombre, String apellido, String imagen, String descripcion) {
         this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
         this.imagen = imagen;
+        this.descripcion = descripcion;
     }
     
 }
