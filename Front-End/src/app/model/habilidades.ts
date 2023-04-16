@@ -4,7 +4,7 @@ export class Habilidades {
     nombre: String;
     progreso: number;
     
-    constructor(nombre:string,progreso:number){
+    constructor(nombre:String, progreso:number){
         this.nombre = nombre;
         this.progreso = progreso;
     }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Persona } from 'src/app/model/persona.model';
+import { JsonService } from 'src/app/service/json.service';
 import { PersonaService } from 'src/app/service/persona.service';
 import { TokenService } from 'src/app/service/token.service';
 
@@ -13,17 +14,26 @@ import { TokenService } from 'src/app/service/token.service';
 export class EncabezadoComponent implements OnInit {
   
   isLogged = false;
-  persona: Persona = new Persona("","","","");
+  persona: Persona = null;
+  datos : any = {};
 
-  constructor(public personaService: PersonaService, private router: Router, private tokenService: TokenService) { }
+  constructor(public personaService: PersonaService, private router: Router, private tokenService: TokenService, private jsonService: JsonService) { }
 
   ngOnInit(): void {
-    this.cargarPersona;
+    this.cargarPersona();
     if(this.tokenService.getToken()){
-      this.isLogged=true;
-    }else{
-      this.isLogged=false;
+      this.isLogged = true;
+    }else {
+      this.isLogged = false;
+    };
+    this.jsonService.obtenerDatos().subscribe(
+      (data : any ) => {
+      this.datos = data;
+    },
+    (error: any) => {
+      console.log(error);
     }
+    );  
   }
 
   onLogOut():void{
@@ -36,6 +46,6 @@ export class EncabezadoComponent implements OnInit {
   }
 
   cargarPersona(){
-    this.personaService.detail(1).subscribe(data => {this.persona = data});
+    this.personaService.detalle(1).subscribe(data => {this.persona = data});
   }
 }

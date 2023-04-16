@@ -2,13 +2,9 @@
     <div class="row">
         <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
             <div class="form-group">
-                <label for="nombre">Nombre del estudio:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="persona.nombre" required>
-            </div><br>
-            <div class="form-group">
                 <label for="descripcion">Descripción:</label>
                 <input type="text" style="height: 100;" class="form-control" id="apellido" name="apellido"
-                    [(ngModel)]="persona.apellido" required>
+                    [(ngModel)]="persona.descripcion" required>
             </div><br>
             <button class="btn btn-primary" style="margin-right: 10px;">Actualizar</button>
             <button class="btn btn-danger" type="button" (click)="Cancel()">Cancelar</button>

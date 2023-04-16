@@ -5,7 +5,7 @@
             <div class="col-sm-4">
                 <img src={{persona.imagen}} alt="profile" class="img-fluid">
                 <span *ngIf="isLogged" class="edit-icon" data-bs-toggle="modal" data-bs-target="#editFotoModal">
-                    <i routerLink="/editPer" *ngIf="isLogged" class="bi bi-pencil-square"></i>
+                    <i routerLink="/editPer/{{persona.id}}" *ngIf="isLogged" class="bi bi-pencil-square"></i>
                 </span>
             </div>
             <div class="col-sm-8 mt-3">
