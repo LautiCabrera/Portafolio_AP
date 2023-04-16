@@ -10,20 +10,20 @@ import { environment } from 'src/environments/environments';
 
 export class PersonaService { 
   
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   URL = environment.URL + 'personas/';
 
   public lista(): Observable<Persona[]>{
-    return this.http.get<Persona[]>(this.URL + 'lista');
+    return this.httpClient.get<Persona[]>(this.URL + 'lista');
   }
 
-  public detail(id: number): Observable<Persona>{
-    return this.http.get<Persona>(this.URL + `detalle/${id}`);
+  public detalle(id: number): Observable<Persona>{
+    return this.httpClient.get<Persona>(this.URL + `detalle/${id}`);
   }
 
-  public update(id: number, persona: Persona): Observable<any>{
-    return this.http.put<any>(this.URL + `actualizar/${id}`, persona);
+  public actualizar(id: number, persona: Persona): Observable<any>{
+    return this.httpClient.put<any>(this.URL + `actualizar/${id}`, persona);
   }
 
 }
