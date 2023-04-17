@@ -6,6 +6,11 @@
                 <input type="text" style="height: 100;" class="form-control" id="apellido" name="apellido"
                     [(ngModel)]="persona.descripcion" required>
             </div><br>
+            <div class="form-group">
+                <label for="img">Img</label>
+                <input type="file" class="form-control" id="img" name="img" [(ngModel)]="persona.imagen"
+                    (change)="uploadImagen($event)" accept=".jpg, .jpeg, .png">
+            </div>
             <button class="btn btn-primary" style="margin-right: 10px;">Actualizar</button>
             <button class="btn btn-danger" type="button" (click)="Cancel()">Cancelar</button>
         </form>

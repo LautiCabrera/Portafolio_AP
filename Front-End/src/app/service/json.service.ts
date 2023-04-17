@@ -9,7 +9,7 @@ export class JsonService {
   constructor(private http : HttpClient) { }
 
   obtenerDatos(){
-    return this.http.get('assets/json/portfinal.json');
+    return this.http.get('');
   }
   
 }
