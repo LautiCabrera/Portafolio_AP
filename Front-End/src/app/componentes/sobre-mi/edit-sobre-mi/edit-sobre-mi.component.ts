@@ -43,9 +43,9 @@ export class EditSobreMiComponent {
     this.getImagenes('');  
   }
 
-  onUpdate(){
+  onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    this.persona.imagen = this.imagenService.url
+    this.persona.imagen = this.imagenService.url;
     this.personaService.actualizar(id, this.persona).subscribe(
       data =>{
         this.router.navigate(['']);
@@ -53,7 +53,7 @@ export class EditSobreMiComponent {
         alert("Error al modificar persona");
         this.router.navigate(['']);
       }
-    )  
+    );  
   }
 
   uploadImagen($event:any){
