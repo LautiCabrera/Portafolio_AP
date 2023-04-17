@@ -26,14 +26,12 @@ public class PersonaController {
     @Autowired 
     ImplementPersonaService personaService;
     
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/lista")
     public ResponseEntity<List<Persona>> list(){
         List<Persona> list = personaService.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/detalle/{id}")
     public ResponseEntity<Persona> getById(@PathVariable("id")int id){
         if(!personaService.existsById(id)){
@@ -43,7 +41,6 @@ public class PersonaController {
         return new ResponseEntity(persona, HttpStatus.OK);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody PersonaDto dtopersona){
         if(!personaService.existsById(id))
